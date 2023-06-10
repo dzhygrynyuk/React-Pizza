@@ -1,12 +1,12 @@
 import classNames from "classnames";
 
-function Button(props){
+function Button({children, className, outline}){
     return(
         <button
-            className={classNames('button', {
-                'button--outline': props.outline,
+            className={classNames('button', className, {
+                'button--outline': outline,
             })}>
-            {props.children}
+            {children}
         </button>
     );
 }

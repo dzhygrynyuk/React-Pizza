@@ -1,12 +1,9 @@
-import Header from './components/Header';
-import Button from './components/Button';
+import { Header } from './components';
 
 function App() {
   return (
     <div className="wrapper">
       <Header />
-      <Button>Test1</Button>
-      <Button outline>Tes2</Button>
 
       <div className="content">
         <div className="container">
