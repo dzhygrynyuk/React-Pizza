@@ -8,10 +8,10 @@ function App() {
       <div className="content">
         <div className="container">
           <div className="content__top">
-            <Categories items={['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']} />
+            <Categories items={['Meat', 'Vegetarian', 'Grill', 'Spicy', 'Cheese']} />
             <SortPopup items={['popularity', 'price', 'alphabet']} />
           </div>
-          <h2 className="content__title">Все пиццы</h2>
+          <h2 className="content__title">All pizzas</h2>
           <div className="content__items">
             <div className="pizza-block">
               <img
