@@ -2,7 +2,9 @@ import { useState } from "react";
 import classNames from "classnames";
 import PropTypes from 'prop-types';
 
-function PizzaBlock({name, imageUrl, price, types, sizes}) {
+import Button from "../Button";
+
+function PizzaBlock({id, name, imageUrl, price, types, sizes, onAddToCart}) {
     const availableTypes = ['thin', 'traditional'];
     const availableSizes = [26, 30, 40];
 
@@ -15,6 +17,18 @@ function PizzaBlock({name, imageUrl, price, types, sizes}) {
 
     const onSelectSize = (item) => {
         setActiveSize(item);
+    }
+
+    const onClickAddToCart = () => {
+        const obj = {
+            id, 
+            name, 
+            imageUrl, 
+            price,
+            size: activeSize,
+            type: availableTypes[activeType],
+        };
+        onAddToCart(obj);
     }
 
     return(
@@ -53,7 +67,7 @@ function PizzaBlock({name, imageUrl, price, types, sizes}) {
             </div>
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">${price}</div>
-                <div className="button button--outline button--add">
+                <Button onClick={onClickAddToCart} className={'button--add'} outline>
                     <svg
                         width="12"
                         height="12"
@@ -68,7 +82,7 @@ function PizzaBlock({name, imageUrl, price, types, sizes}) {
                     </svg>
                     <span>Add</span>
                     <i>2</i>
-                </div>
+                </Button>
             </div>
         </div>
     );
